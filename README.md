@@ -71,4 +71,8 @@ UEditor位置：
 
 ### Github仓库地址
 
+[Github](https://github.com/zuahua/customUEditor)
 
+### 参考
+
+[UEditor官方文档](http://fex.baidu.com/ueditor/#api-common)
