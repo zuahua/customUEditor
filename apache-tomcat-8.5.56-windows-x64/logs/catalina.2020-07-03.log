@@ -1,0 +1,47 @@
+03-Jul-2020 10:50:57.081 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Server.服务器版本: Apache Tomcat/8.5.56
+03-Jul-2020 10:50:57.083 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器构建:        Jun 3 2020 20:18:30 UTC
+03-Jul-2020 10:50:57.083 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 服务器版本号(:     8.5.56.0
+03-Jul-2020 10:50:57.083 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 操作系统名称:      Windows 8
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log OS.版本:           6.2
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 架构:              amd64
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java 环境变量:     C:\Program Files\Java\jdk1.8\jre
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log Java虚拟机版本:    1.8.0_31-b13
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM.供应商:        Oracle Corporation
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:     C:\apache-tomcat-8.5.56-windows-x64
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:     C:\apache-tomcat-8.5.56-windows-x64
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：-Dcatalina.home=C:\apache-tomcat-8.5.56-windows-x64
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：-Dcatalina.base=C:\apache-tomcat-8.5.56-windows-x64
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：-Dignore.endorsed.dirs=C:\apache-tomcat-8.5.56-windows-x64\endorsed
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：-Djava.io.tmpdir=C:\apache-tomcat-8.5.56-windows-x64\temp
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：-Djava.util.logging.config.file=C:\apache-tomcat-8.5.56-windows-x64\conf\logging.properties
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：exit
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：abort
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：-Xms128m
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.startup.VersionLoggerListener.log 命令行参数：-Xmx256m
+03-Jul-2020 10:50:57.084 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent 使用APR版本[1.7.0]加载了基于APR的Apache Tomcat本机库[1.2.24]。
+03-Jul-2020 10:50:57.085 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR功能：IPv6[true]、sendfile[true]、accept filters[false]、random[true]。
+03-Jul-2020 10:50:57.085 信息 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL配置：useAprConnector[false]，useOpenSSL[true]
+03-Jul-2020 10:50:57.087 信息 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL成功初始化 [OpenSSL 1.1.1g  21 Apr 2020]
+03-Jul-2020 10:50:57.586 信息 [main] org.apache.coyote.AbstractProtocol.init 初始化协议处理器 ["http-nio-8080"]
+03-Jul-2020 10:50:57.620 信息 [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Jul-2020 10:50:57.631 信息 [main] org.apache.catalina.startup.Catalina.load Initialization processed in 807 ms
+03-Jul-2020 10:50:57.650 信息 [main] org.apache.catalina.core.StandardService.startInternal 正在启动服务[Catalina]
+03-Jul-2020 10:50:57.650 信息 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.56
+03-Jul-2020 10:50:57.655 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\apache-tomcat-8.5.56-windows-x64\webapps\docs]
+03-Jul-2020 10:50:57.828 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\apache-tomcat-8.5.56-windows-x64\webapps\docs]的部署已在[172]毫秒内完成
+03-Jul-2020 10:50:57.828 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\apache-tomcat-8.5.56-windows-x64\webapps\examples]
+03-Jul-2020 10:50:58.455 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\apache-tomcat-8.5.56-windows-x64\webapps\examples]的部署已在[627]毫秒内完成
+03-Jul-2020 10:50:58.455 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\apache-tomcat-8.5.56-windows-x64\webapps\host-manager]
+03-Jul-2020 10:50:58.472 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\apache-tomcat-8.5.56-windows-x64\webapps\host-manager]的部署已在[17]毫秒内完成
+03-Jul-2020 10:50:58.472 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\apache-tomcat-8.5.56-windows-x64\webapps\manager]
+03-Jul-2020 10:50:58.485 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\apache-tomcat-8.5.56-windows-x64\webapps\manager]的部署已在[13]毫秒内完成
+03-Jul-2020 10:50:58.486 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory 把web 应用程序部署到目录 [C:\apache-tomcat-8.5.56-windows-x64\webapps\ROOT]
+03-Jul-2020 10:50:58.497 信息 [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Web应用程序目录[C:\apache-tomcat-8.5.56-windows-x64\webapps\ROOT]的部署已在[10]毫秒内完成
+03-Jul-2020 10:50:58.498 信息 [main] org.apache.coyote.AbstractProtocol.start 开始协议处理句柄["http-nio-8080"]
+03-Jul-2020 10:50:58.503 信息 [main] org.apache.catalina.startup.Catalina.start Server startup in 871 ms
+03-Jul-2020 10:57:39.720 警告 [main] org.apache.catalina.core.StandardServer.await 收到无效的关闭命令[]
+03-Jul-2020 10:58:02.113 信息 [Thread-5] org.apache.coyote.AbstractProtocol.pause 暂停ProtocolHandler["http-nio-8080"]
+03-Jul-2020 10:58:02.154 信息 [Thread-5] org.apache.catalina.core.StandardService.stopInternal 正在停止服务[Catalina]
+03-Jul-2020 10:58:02.173 信息 [Thread-5] org.apache.coyote.AbstractProtocol.stop 正在停止ProtocolHandler ["http-nio-8080"]
+03-Jul-2020 10:58:02.174 信息 [Thread-5] org.apache.coyote.AbstractProtocol.destroy 正在摧毁协议处理器 ["http-nio-8080"]

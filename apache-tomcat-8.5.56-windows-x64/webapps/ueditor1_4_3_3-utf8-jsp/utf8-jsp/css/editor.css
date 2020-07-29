@@ -1,0 +1,11 @@
+/*** 控制编辑器内容的全局样式  */
+
+img {
+	max-width: 500px;
+    /* max-height: 450px; */
+}
+
+video {
+	max-width: 500px;
+    /* max-height: 450px; */
+}

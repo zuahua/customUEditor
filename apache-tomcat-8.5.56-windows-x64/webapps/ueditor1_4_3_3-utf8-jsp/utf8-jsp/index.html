@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <title>UEditor编辑器</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <script type="text/javascript" charset="utf-8" src="ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="ueditor.all.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="lang/zh-cn/zh-cn.js"></script>
+    <!-- 自定义 页面样式 -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- <script type="text/javascript" charset="utf-8" src="lang/en/en.js"></script> -->
+    <!-- <link rel="stylesheet" href="css/wx-mp.css"> -->
+
+    <!-- jquery bootstrap -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <style type="text/css">
+        div {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body style="width: 1024px; margin:0 auto; padding-bottom: 20px;">
+
+    <div>
+        <!-- 按钮 -->
+        <div id="btns">
+            <!-- <button class="btn btn-success" onclick="getAllHtml()">获取html</button> -->
+            <!-- 预览按钮 -->
+            <button class="btn btn-primary" onclick="getPreview()">预览</button>
+            <button class="btn btn-success" onclick="uploadHtml()">上传</button>
+        </div>
+
+        <!-- 标题 作者 输入 form -->
+        <div class="row">
+            <form class="form-horizontal" id="form">
+                <div class="form-group col-lg-6">
+                    <label for="title" class="col-lg-2 col-sm-1 col-xs-1 control-label">标题：</label>
+                    <div class="col-lg-10 col-sm-6 col-xs-6">
+                        <input type="text" class="form-control" id="title" placeholder="请在这里输入标题">
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label for="author" class="col-lg-2 col-sm-1 control-label col-xs-1">作者：</label>
+                    <div class="col-lg-8 col-sm-6 col-xs-6">
+                        <input type="text" class="form-control" id="author" placeholder="请输入作者">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <div id="editor_div">
+        <script id="editor" type="text/plain" style="width:1024px;height:500px;margin-top: 10px;"></script>
+    </div>
+
+    <script type="text/javascript">
+        //实例化编辑器
+        //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+        var toolbars = [
+            ['undo', 'redo', '|', 'removeformat', 'formatmatch', '|', 'fontsize',
+                'bold', 'italic', 'underline', 'strikethrough', 'fontborder', 'forecolor', 'backcolor', '|',
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|',
+                'indent', 'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+                'insertorderedlist', 'insertunorderedlist', '|',
+                'imagenone', 'imageleft', 'imageright', '|', // 浮动
+                'link', 'inserttable', 'blockquote', 'horizontal', 'insertcode', 'emotion', '|',
+                'simpleupload', 'insertimage', 'insertvideo'
+            ]
+        ];
+        var ue = UE.getEditor('editor', { toolbars: toolbars });
+
+        function isFocus(e) {
+            alert(UE.getEditor('editor').isFocus());
+            UE.dom.domUtils.preventDefault(e)
+        }
+
+        function setblur(e) {
+            UE.getEditor('editor').blur();
+            UE.dom.domUtils.preventDefault(e)
+        }
+
+        function insertHtml() {
+            var value = prompt('插入html代码', '');
+            UE.getEditor('editor').execCommand('insertHtml', value)
+        }
+
+        function createEditor() {
+            enableBtn();
+            UE.getEditor('editor');
+        }
+
+        /***************************************************************
+         * 重写获取页面 html 的代码
+         */
+        function getAllHtml() {
+            var editor = UE.getEditor('editor');
+            // alert(UE.getEditor('editor').getAllHtml())
+            var allHtml = UE.getEditor('editor').getAllHtml();
+            var codeNode = document.getElementById("code_all_html");
+            // console.log(codeNode);
+            // console.log(allHtml);
+
+            // 使用 DOMParser 解析文档
+            var domParser = new DOMParser();
+            var documentAllHtml = domParser.parseFromString(allHtml, "text/html"); // 文档类型
+
+            var head = documentAllHtml.getElementsByTagName("head")[0]; // 获取 head 节点
+            var body = documentAllHtml.getElementsByTagName('body')[0]; // 获取 body 节点
+
+            // head中添加相关 meta
+            var addHeadChildMeta = document.createElement('meta');
+            addHeadChildMeta.setAttribute("charset", "UTF-8"); // 添加字符编码为 UTF-8
+            head.appendChild(addHeadChildMeta);
+
+            var addHeadChildMeta2 = document.createElement("meta");
+            addHeadChildMeta2.setAttribute("name", "viewport");
+            addHeadChildMeta2.setAttribute("content", "width=device-width, initial-scale=1.0"); // 移动端适配meta
+            head.appendChild(addHeadChildMeta2);
+
+            // 在 head 中添加 自定义 css
+            var customCssLink = document.createElement('link');
+            customCssLink.setAttribute('rel', 'stylesheet');
+            customCssLink.setAttribute('href', '/ueditor1_4_3_3-utf8-jsp/utf8-jsp/css/custom.css');
+            head.appendChild(customCssLink);
+
+            // 添加标题栏 与 作者栏
+            var inputObj = getInput(); // 获取表单
+            if (inputObj) {
+                var { title, author } = inputObj;
+                if (author != "") {
+                    var authorDiv = document.createElement('div'); // 作者栏节点
+                    authorDiv.setAttribute("class", "rich_media_meta_list");
+                    var authorSpan = document.createElement('span'); // 作者
+                    authorSpan.setAttribute("class", "rich_media_meta");
+                    authorSpan.innerHTML = author;
+                    var dateSpan = document.createElement('span'); // 日期
+                    dateSpan.setAttribute("class", "rich_media_meta");
+
+                    dateSpan.innerHTML = getNowDate();
+
+                    authorDiv.appendChild(authorSpan);
+                    authorDiv.appendChild(dateSpan);
+
+                    body.insertBefore(authorDiv, body.firstChild);
+                }
+                if (title != "") {
+                    var h2 = document.createElement('h2'); // 标题节点
+                    h2.setAttribute("class", "rich_media_title");
+                    h2.innerHTML = title;
+
+                    body.insertBefore(h2, body.firstChild); // 插入节点
+                }
+
+            }
+
+            // 将html对象转为 string
+            var allHtmlDOM = documentAllHtml.getElementsByTagName('html')[0];
+            var allHtmlString = '<html>' + allHtmlDOM.innerHTML + '</html>';
+            console.log(allHtmlString);
+
+            return allHtmlString;
+        }
+
+
+        /**
+         * 上传按钮
+        */
+        function uploadHtml() {
+            alert("上传成功");
+        }
+
+        /**
+         * 获取表单内容 标题 title 作者 author
+         * 返回：若值都为"" false ; 不都为空: { title, author }
+         * 
+        */
+        function getInput() {
+            var title = document.getElementById('title').value;
+            var author = document.getElementById('author').value;
+
+            title = title.trim();
+            author = author.trim();
+
+            if (title == "" && author == "") {
+                return false;
+            } else {
+                return { title, author }
+            }
+        }
+
+        /**
+         * 获取当前日期
+         * 返回 string 格式：2020/7/21
+        */
+        function getNowDate() {
+            var nowTime = new Date(); // 当前时间
+            nowTime = nowTime.toLocaleString('zh-CN', { hour12: false }); // 转换格式
+            nowTime = nowTime.replace(/ \d{2}:\d{2}:\d{2}$/, ""); // 正则表达式方式 去掉秒
+            return nowTime;
+        }
+
+        // 需要的变量
+        var editor = UE.getEditor('editor');
+        // 获取编辑器的宽高
+        editorWidth = getEditorSize().width;
+        editorHeight = getEditorSize().height;
+
+        /**
+         * 获取编辑视图的iframe
+         * 监听编辑视图的DOM树
+         * 使用MutationObserver
+         */
+        window.onload = function () {
+            var iframe = document.getElementById('ueditor_0');
+            // 获取iframe中的body
+            var body = iframe.contentWindow.document.getElementsByTagName('body')[0];
+            var head = iframe.contentWindow.document.getElementsByTagName('head')[0];
+
+            // 添加编辑框内容 全局控制样式
+            var editorCssLink = document.createElement('link');
+            editorCssLink.setAttribute('rel', 'stylesheet');
+            editorCssLink.setAttribute('href', 'css/editor.css');
+            head.appendChild(editorCssLink);
+
+            //#region MutationObserver 监听页面变化
+            // var observer = new MutationObserver(function (mutations) {
+            //     mutations.forEach(function (mutation) {
+            //         for (var i = 0; i < mutation.addedNodes.length; i++) {
+            //             // console.log(mutation.addedNodes[i].nodeName);
+            //             var node = mutation.addedNodes[i];
+            //             // 判断新增节点是否为IMG
+            //             if (node.nodeName === "IMG") { // 控制 img 最大宽高
+            //                 // 控制img
+            //                 var style = node.style;
+            //                 style.maxWidth = Math.floor(editorWidth / 9 * 4) + "px";
+
+            //                 // style.maxHeight = Math.floor(editorHeight / 3 * 2) + "px";
+            //             }
+
+            //             if (node.nodeName === "VIDEO") { // 控制 video 最大宽高
+            //                 var style = node.style;
+            //                 style.maxWidth = Math.floor(editorWidth / 9 * 4) + "px";
+            //                 // style.maxHeight = Math.floor(editorHeight / 3 * 2) + "px";
+            //             }
+            //             // console.log(node.nodeName);
+            //         }
+
+            //     });
+
+            // });
+            // observer.observe(body, {
+            //     childList: true,
+            //     subtree: true
+            // });
+            //#endregion
+        }
+
+        /**
+         * 预览按钮 使用JS提交表单的方式
+        */
+        function getPreview() {
+            // 创建form
+            var form = document.createElement('form');
+            document.body.appendChild(form);
+            form.action = "preview.jsp";
+            form.method = "post";
+            form.target = "_blank";
+
+            // 创建input 存储 编辑页面html
+            var input = document.createElement('input');
+            input.type = "hidden";
+            input.name = "allHtmlString";
+            input.value = getAllHtml();
+
+            form.appendChild(input);
+
+            form.submit(); // 提交
+        }
+
+        /**
+         * 添加事件监听 运行命令之后
+         * 1. 控制 添加图片之后 图片的大小
+         */
+        editor.addListener('afterExecCommand', function () {
+            // console.log("--- afterExecCommand ---");
+            //#region 
+            // // 获取编辑器 宽 高
+            // var editorWidth = getEditorSize().width;
+            // var editorHeight = getEditorSize().height;
+
+            // // 获取当前 图片数量 状态
+            // var currentImgs = document.getElementsByTagName('img'); // 当前 页面的所有图片
+            // var currentImgsNumber = Array.from(imgs).length; // 当前 页面所有图片的数量
+            // console.log(currentImgsNumber);
+            // if (currentImgsNumber > imgsNumber) { // 当前图片数量 大于 先前图片数量 用户新添加了 图片
+            //     var addImgNum = currentImgsNumber - imgsNumber; // 添加图片的数量
+
+            //     for (var i = currentImgsNumber; i > imgsNumber; i--) {
+            //         console.log("添加了图片");
+            //     }
+            //     // 更新先前状态
+            //     imgsNumber = currentImgsNumber;
+            //     imgs = currentImgs;
+            // }
+            //#endregion
+            // var previewState = editor.queryCommandState("preview");
+            // console.log(previewState);
+
+        });
+
+        /*
+         * 选区内 内容变化 的事件监听
+         */
+        editor.addListener('contentChange', function () {
+            // 判断 插入图片 命令的状态
+            // var iiCom = editor.queryCommandState("link");
+            // console.log("插入链接" + iiCom);
+        });
+
+        /**
+         * 添加事件 运行命令之前
+         */
+        editor.addListener('beforeExecCommand', function () {
+            // console.log("beforeExecCommand");
+            // // 判断 插入图片 命令的状态
+            // var iiCom = editor.queryCommandState("insertimage");
+            // console.log("插入图片" + iiCom);
+
+            // var boldCom = editor.queryCommandState("bold");
+            // console.log("加粗：" + boldCom);
+        });
+
+        /**
+         * 选区内部发生变化事件监听
+         */
+        editor.addListener('selectionchange', function () {
+            // console.log("---selectionchange");
+
+            // // 判断 插入图片 命令的状态
+            // var iiCom = editor.queryCommandState("insertimage");
+            // console.log("插入图片" + iiCom);
+
+            // var boldCom = editor.queryCommandState("bold");
+            // console.log("加粗：" + boldCom);
+        });
+
+        /**
+         * 插入图片之后得监听事件
+         */
+
+
+        /**
+         * 监听 插入视频后；
+         * 获取视频链接
+         */
+        editor.addListener('afterUpVideo', function (t, arg) {
+            // console.log(arg)
+        })
+
+
+        /**
+         * 获取编辑器的 宽 高
+         */
+        function getEditorSize() {
+            var editorDiv = document.getElementById('editor');
+            var width = window.getComputedStyle(editorDiv).getPropertyValue('width');
+            var height = window.getComputedStyle(editorDiv).getPropertyValue('height');
+            width = parseInt(width);
+            height = parseInt(height);
+            var obj = {
+                width,
+                height
+            }
+            return obj;
+        }
+        /***************************************************************/
+    </script>
+</body>
+
+</html>

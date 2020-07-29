@@ -1,0 +1,138 @@
+19-Jul-2020 09:35:55.947 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+19-Jul-2020 09:35:55.947 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+19-Jul-2020 09:35:55.948 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5b57c5bd')
+19-Jul-2020 09:36:39.400 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+19-Jul-2020 09:36:39.400 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+19-Jul-2020 09:36:39.402 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@4638c2b0')
+19-Jul-2020 13:16:41.594 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+19-Jul-2020 13:16:41.594 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+19-Jul-2020 13:16:41.596 信息 [localhost-startStop-1] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@5b57c5bd')
+19-Jul-2020 14:11:42.824 严重 [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke 在路径为/ueditor1_4_3_3-utf8-jsp的上下文中，Servlet[jsp]的Servlet.service（）引发了具有根本原因的异常无法为JSP编译类: 
+
+JSP文件：[/utf8-jsp/jsp/controller.jsp] 的第 [16] 行发生了一个错误
+rootPath cannot be resolved to a variable
+13: 
+14: 	// 淇敼璺緞(娣诲姞浠ｇ爜)
+15: 	String action = request.getParameter("action");
+16: 	String result = new ActionEnter( request, rootPath ).exec();
+17: 	if( action!=null &&
+18: 	(action.equals("listfile") || action.equals("listimage") ) ){
+19: 		rootPath = rootPath.replace("\\", "/");
+
+
+JSP文件：[/utf8-jsp/jsp/controller.jsp] 的第 [19] 行发生了一个错误
+rootPath cannot be resolved to a variable
+16: 	String result = new ActionEnter( request, rootPath ).exec();
+17: 	if( action!=null &&
+18: 	(action.equals("listfile") || action.equals("listimage") ) ){
+19: 		rootPath = rootPath.replace("\\", "/");
+20: 		result = result.replaceAll(rootPath, "/");
+21: 	}
+22: 	out.write( result );
+
+
+JSP文件：[/utf8-jsp/jsp/controller.jsp] 的第 [19] 行发生了一个错误
+rootPath cannot be resolved
+16: 	String result = new ActionEnter( request, rootPath ).exec();
+17: 	if( action!=null &&
+18: 	(action.equals("listfile") || action.equals("listimage") ) ){
+19: 		rootPath = rootPath.replace("\\", "/");
+20: 		result = result.replaceAll(rootPath, "/");
+21: 	}
+22: 	out.write( result );
+
+
+JSP文件：[/utf8-jsp/jsp/controller.jsp] 的第 [20] 行发生了一个错误
+rootPath cannot be resolved to a variable
+17: 	if( action!=null &&
+18: 	(action.equals("listfile") || action.equals("listimage") ) ){
+19: 		rootPath = rootPath.replace("\\", "/");
+20: 		result = result.replaceAll(rootPath, "/");
+21: 	}
+22: 	out.write( result );
+23: 
+
+
+Stacktrace:
+	org.apache.jasper.JasperException: 无法为JSP编译类: 
+
+JSP文件：[/utf8-jsp/jsp/controller.jsp] 的第 [16] 行发生了一个错误
+rootPath cannot be resolved to a variable
+13: 
+14: 	// 淇敼璺緞(娣诲姞浠ｇ爜)
+15: 	String action = request.getParameter("action");
+16: 	String result = new ActionEnter( request, rootPath ).exec();
+17: 	if( action!=null &&
+18: 	(action.equals("listfile") || action.equals("listimage") ) ){
+19: 		rootPath = rootPath.replace("\\", "/");
+
+
+JSP文件：[/utf8-jsp/jsp/controller.jsp] 的第 [19] 行发生了一个错误
+rootPath cannot be resolved to a variable
+16: 	String result = new ActionEnter( request, rootPath ).exec();
+17: 	if( action!=null &&
+18: 	(action.equals("listfile") || action.equals("listimage") ) ){
+19: 		rootPath = rootPath.replace("\\", "/");
+20: 		result = result.replaceAll(rootPath, "/");
+21: 	}
+22: 	out.write( result );
+
+
+JSP文件：[/utf8-jsp/jsp/controller.jsp] 的第 [19] 行发生了一个错误
+rootPath cannot be resolved
+16: 	String result = new ActionEnter( request, rootPath ).exec();
+17: 	if( action!=null &&
+18: 	(action.equals("listfile") || action.equals("listimage") ) ){
+19: 		rootPath = rootPath.replace("\\", "/");
+20: 		result = result.replaceAll(rootPath, "/");
+21: 	}
+22: 	out.write( result );
+
+
+JSP文件：[/utf8-jsp/jsp/controller.jsp] 的第 [20] 行发生了一个错误
+rootPath cannot be resolved to a variable
+17: 	if( action!=null &&
+18: 	(action.equals("listfile") || action.equals("listimage") ) ){
+19: 		rootPath = rootPath.replace("\\", "/");
+20: 		result = result.replaceAll(rootPath, "/");
+21: 	}
+22: 	out.write( result );
+23: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:102)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:212)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:560)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:381)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:351)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:335)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:597)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:399)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:386)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:330)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:543)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:690)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:615)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:818)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1627)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+		at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+		at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+		at java.lang.Thread.run(Thread.java:748)
+19-Jul-2020 21:14:59.707 信息 [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+19-Jul-2020 21:14:59.707 信息 [localhost-startStop-2] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()

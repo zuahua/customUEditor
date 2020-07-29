@@ -1,0 +1,20 @@
+[2020-07-21 08:26:47] [info]  [ 8800] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2020-07-21 08:26:47] [info]  [ 8800] Running Service 'Tomcat8'...
+[2020-07-21 08:26:47] [info]  [10052] Starting service...
+[2020-07-21 08:26:49] [info]  [10052] Service started in 1150 milliseconds.
+[2020-07-21 18:12:49] [info]  [ 2740] Stopping service...
+[2020-07-21 18:12:50] [info]  [ 2740] Service stop thread completed.
+[2020-07-21 18:12:50] [info]  [ 8800] Run service finished.
+[2020-07-21 18:12:50] [info]  [ 8800] Apache Commons Daemon procrun finished.
+[2020-07-21 19:13:31] [info]  [10108] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2020-07-21 19:13:31] [info]  [10108] Installing service 'Tomcat8' name 'Apache Tomcat 8.5 Tomcat8'.
+[2020-07-21 19:13:31] [info]  [10108] Service 'Tomcat8' installed.
+[2020-07-21 19:13:31] [info]  [10108] Apache Commons Daemon procrun finished.
+[2020-07-21 19:14:08] [info]  [ 5168] Apache Commons Daemon procrun (1.2.2.0 64-bit) started.
+[2020-07-21 19:14:08] [info]  [ 5168] Running Service 'Tomcat8'...
+[2020-07-21 19:14:09] [info]  [ 8848] Starting service...
+[2020-07-21 19:14:10] [info]  [ 8848] Service started in 1163 milliseconds.
+[2020-07-21 19:34:11] [info]  [13248] Stopping service...
+[2020-07-21 19:34:12] [info]  [13248] Service stop thread completed.
+[2020-07-21 19:34:12] [info]  [ 5168] Run service finished.
+[2020-07-21 19:34:12] [info]  [ 5168] Apache Commons Daemon procrun finished.

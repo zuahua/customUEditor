@@ -1,0 +1,14 @@
+
+#btns {
+    margin: 15px 0;
+}
+
+#btns button {
+    width: 100px;
+}
+
+#form input, #form label {
+    font-size: 15px;
+    font-weight: bold;
+    font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;
+}

@@ -1,0 +1,119 @@
+/**  自定义的输出 html 的样式  **/
+
+/* 标题栏 作者栏 */
+/* 标题 */
+.rich_media_title {
+    font-size: 22px;
+    line-height: 1.4;
+    margin-bottom: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+h2 {
+    margin: 0px 0px 14px;
+    padding: 0px;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.4;
+    color: rgb(51, 51, 51);
+    font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;
+    letter-spacing: 0.544px;
+    white-space: normal;
+    background-color: rgb(255, 255, 255);
+
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.4em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+/* 作者栏 */
+.rich_media_meta_list {
+    margin-bottom: 22px;
+    margin-left: 5px;
+    line-height: 20px;
+    color: #576BBD;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+
+/* 作者栏中的每一个 */
+.rich_media_meta {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px 0px 0;
+    font-size: 15px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a{
+    text-decoration: none;
+}
+
+/* --- */
+
+body {
+    font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;
+    width: 700px;
+    margin: 0 auto;
+    padding: 10px 10px;
+    display: block;
+    box-sizing: border-box;
+    letter-spacing: 0.034em;
+}
+
+img {
+    max-width: 500px;
+    /* max-height: 450px; */
+}
+
+video {
+    max-width: 500px;
+    /* max-height: 450px; */
+}
+
+p {
+    line-height: 30px !important;
+}
+
+@media (max-width: 720px) {
+    body {
+        font-family: -apple-system-font, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", Arial, sans-serif;
+        width: 100%;
+        margin: 0;
+        padding: 10px 20px;
+        display: block;
+        box-sizing: border-box;
+        letter-spacing: 0.034em;
+    }
+
+    img {
+        margin: 5px 0;
+        max-width: 100% !important;
+        /* max-height: 60% !important; */
+    }
+
+    video {
+        margin: 5px 0;
+        max-width: 100% !important;
+        /* max-height: 60% !important; */
+    }
+
+    p {
+        line-height: 30px !important;
+        margin: 2px 0;
+    }
+}
